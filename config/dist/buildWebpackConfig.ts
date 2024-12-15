@@ -1,4 +1,3 @@
-import path from 'path';
 import webpack from 'webpack'; 
 import { buildPlugins } from './buildPlugins';
 import { buildLoaders } from './buildLoaders';
@@ -23,7 +22,7 @@ export function buildWebpackConfig (options: BuildOptions): webpack.Configuratio
         module: {
             rules: buildLoaders(options)
           },
-        resolve: buildResolvers(),
+        resolve: buildResolvers(options),
         devServer: mode == 'development' ? buildDevServer(options) : undefined,
         devtool: false,
     }

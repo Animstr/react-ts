@@ -5,7 +5,8 @@ export type BuildMode = 'production' | 'development';
 export interface BulidPaths {
     entry: string,
     dist: string,
-    html: string
+    html: string,
+    src: string
 }
 
 export interface BuildEnv {
