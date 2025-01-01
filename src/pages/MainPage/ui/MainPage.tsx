@@ -1,18 +1,12 @@
-import { useState } from "react";
-
 import * as styles from './mainpage.module.scss';
+import { useTranslation } from 'react-i18next';
 
 function MainPage () {
-    const [count, setCount]= useState(0);
-
-    const increase = () => {
-        setCount(count + 1)
-    }
+    const {t} = useTranslation()
 
     return (
         <>
-            <h1>{count}</h1>
-            <button className={styles.btn} onClick={increase}>increase</button>
+            <h1>{t('mainPage')}</h1>
         </>
     )
 }

@@ -26,6 +26,20 @@ export function buildLoaders (options: BuildOptions): webpack.RuleSetRule[] {
         ],
     }
 
+	const svgLoader = {
+		test: /\.svg$/,
+		use: ['@svgr/webpack'],  
+	}
+
+	const imgLoader = {
+		test: /\.(png|jpe?g|gif)$/i,
+			use: [
+			  { loader: 'file-loader',
+			  options: { name: '[name].[ext]', outputPath: 'images/', },
+			}
+		]
+	}
+
     const typescriptLoader = {
         test: /\.tsx?$/,
         use: 'ts-loader',
@@ -34,6 +48,8 @@ export function buildLoaders (options: BuildOptions): webpack.RuleSetRule[] {
 
     return [
         typescriptLoader,
-        scssLoader
+        scssLoader,
+		svgLoader,
+		imgLoader
     ]
 }

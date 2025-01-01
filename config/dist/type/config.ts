@@ -17,5 +17,6 @@ export interface BuildEnv {
 export interface BuildOptions {
     mode: BuildMode,
     paths: BulidPaths,
-    port: number
+    port: number,
+    isDev?: boolean
 }

@@ -12,7 +12,8 @@ export default (env: BuildEnv): webpack.Configuration => {
 			html: path.resolve(__dirname, 'public', 'index.html'),
 			src: path.resolve(__dirname, 'src')
 		},
-		port: env.port || 3000
+		port: env.port || 3000,
+		isDev: env.mode == 'production' ? false : true
 	})
 	return config;
 };
