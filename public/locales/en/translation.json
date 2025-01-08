@@ -1,5 +1,6 @@
 {
-    "switchLanguage": "English",
-    "mainPage": "Main Page",
-    "aboutPage": "About Page"
+  "switchLanguage": "English",
+  "mainPage": "Main Page",
+  "aboutPage": "About Page",
+  "toggle": "toggle"
 }

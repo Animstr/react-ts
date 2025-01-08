@@ -1,5 +1,6 @@
 {
-    "switchLanguage": "Русский",
-    "mainPage": "Главная",
-    "aboutPage": "О нас"
+  "switchLanguage": "Русский",
+  "mainPage": "Главная",
+  "aboutPage": "О нас",
+  "toggle": "Скрыть"
 }

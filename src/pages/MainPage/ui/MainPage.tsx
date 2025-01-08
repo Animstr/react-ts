@@ -1,4 +1,3 @@
-import * as styles from './mainpage.module.scss';
 import { useTranslation } from 'react-i18next';
 
 function MainPage () {

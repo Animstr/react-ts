@@ -11,8 +11,8 @@ import { Suspense } from 'react';
 export function App () {
     const {theme} = useTheme();
     return (
-        <div className={classNames('app', {}, [theme])}>
-             <Router>
+        <div className={classNames('app', [theme])}>
+            <Router>
                 <Suspense fallback='Loading...'>
                     <Navbar className='dark'/>
                     <div className='content-page'>
