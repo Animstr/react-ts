@@ -2,5 +2,6 @@
   "switchLanguage": "English",
   "mainPage": "Main Page",
   "aboutPage": "About Page",
-  "toggle": "toggle"
+  "toggle": "toggle",
+  "PageNotFound": "Page not Found"
 }

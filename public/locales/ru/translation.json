@@ -2,5 +2,6 @@
   "switchLanguage": "Русский",
   "mainPage": "Главная",
   "aboutPage": "О нас",
-  "toggle": "Скрыть"
+  "toggle": "Скрыть",
+  "PageNotFound": "Страница не найдена"
 }
