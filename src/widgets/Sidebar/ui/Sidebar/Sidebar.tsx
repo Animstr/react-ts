@@ -5,17 +5,17 @@ import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher/ThemeSwitcher';
 import { LanguageSwitcher } from 'shared/ui/LanguageSwitcher/LanguageSwitcher';
 import { useTranslation } from 'react-i18next';
 
-export interface SidebarProps {};
-
-export const Sidebar = ({}: SidebarProps) => {
+export const Sidebar = () => {
     const [colapsed, setCollapsed] = useState(false);
-    const [t, i18n] = useTranslation();
+    const {t} = useTranslation();
     const onToggle = () => {
         setCollapsed(prev => !prev);
     }
 
     return (
-        <div className={classNames(s.Sidebar, [], {[s.collapsed]: colapsed})}>
+        <div  
+            data-testid='sidebar' 
+            className={classNames(s.Sidebar, [], {[s.collapsed]: colapsed})}>
             <button 
                 onClick={onToggle}
                 className={s.toggler}>{t('toggle')}</button>

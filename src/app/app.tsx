@@ -11,13 +11,13 @@ export function App () {
     const {theme} = useTheme();
     return (
         <div className={classNames('app', [theme])}>
-                <Router>
-                        <Navbar className='dark'/>
-                        <div className='content-page'>
-                            <Sidebar/>
-                            <AppRouter/>
-                        </div>
-                </Router>
+            <Router>
+                <Navbar className='dark'/>
+                <div className='content-page'>
+                    <Sidebar/>
+                    <AppRouter/>
+                </div>
+            </Router>
         </div>
     )
 }

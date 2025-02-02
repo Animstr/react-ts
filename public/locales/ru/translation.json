@@ -3,5 +3,7 @@
   "mainPage": "Главная",
   "aboutPage": "О нас",
   "toggle": "Скрыть",
-  "PageNotFound": "Страница не найдена"
+  "PageNotFound": "Страница не найдена",
+  "Something is going wrong": "Что-то пошло не так",
+  "Reload page": "Перезагрузить страницу"
 }

@@ -4,9 +4,7 @@ import LightIcon from '../../assets/icons/theme-light.svg';
 import DarkIcon from '../../assets/icons/theme-dark.svg';
 import { Button, ThemeButton } from '../Button/Button';
 
-export interface ThemeSwitcherProps {};
-
-export const ThemeSwitcher = ({}: ThemeSwitcherProps) => {
+export const ThemeSwitcher = () => {
     const {theme, toggleTheme} = useTheme();
     return (
         <Button 

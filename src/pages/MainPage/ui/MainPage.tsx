@@ -5,7 +5,7 @@ function MainPage () {
 
     return (
         <>
-            <h1>{t('mainPage')}</h1>
+            <h1 data-testId='main-page' >{t('mainPage')}</h1>
         </>
     )
 }

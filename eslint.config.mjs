@@ -3,7 +3,17 @@ import pluginJs from "@eslint/js";
 import tseslint from "typescript-eslint";
 import pluginReact from "eslint-plugin-react";
 import i18next from 'eslint-plugin-i18next';
+import { FlatCompat } from "@eslint/eslintrc";
+import path from "path";
+import { fileURLToPath } from "url";
 
+// mimic CommonJS variables -- not needed if using CommonJS
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const compat = new FlatCompat({
+    baseDirectory: __dirname
+});
 /** @type {import('eslint').Linter.Config[]} */
 export default [
     i18next.configs['flat/recommended'],
@@ -36,12 +46,7 @@ export default [
             'import/extensions': 'off',
             'import/no-extraneous-dependencies': 'off',
             'no-underscore-dangle': 'off',
-            'i18next/no-literal-string': 'error'
-        },
-        env: {
-            browser: true,
-            es6: true,
-            jest: true,
+            'i18next/no-literal-string': 'error',
         },
     }
 ];

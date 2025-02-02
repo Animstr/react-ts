@@ -3,9 +3,7 @@ import * as style from './LanguageSwitcher.module.scss';
 import { Button, ThemeButton } from '../Button/Button';
 import { useTranslation } from 'react-i18next';
 
-export interface LanguageSwitcherProps {};
-
-export const LanguageSwitcher = ({}: LanguageSwitcherProps) => {
+export const LanguageSwitcher = () => {
 
     const {t, i18n} = useTranslation();
 
