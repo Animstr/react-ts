@@ -1,4 +1,3 @@
-# Name your workflow
 name: CI
 
 # Set on which events you want run the actions.
@@ -22,26 +21,26 @@ jobs:
   
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-		- name: Setup Node.js environment
+      - name: Setup Node.js environment
         uses: actions/setup-node@v1.4.3
         with:
           node-version: ${{ matrix.node }}
   
-		- name: install modules
-		run: npm install 
+      - name: install modules
+        run: npm install 
 
-		- name: build production project
-		run: npm run build:prod 
+      - name: build production project
+        run: npm run build:prod 
 
-		- name: typescript linter
-		run: npm run lint:ts
+      - name: typescript linter
+        run: npm run lint:ts
 
-		- name: scss linter
-		run: npm run lint:scss
+      - name: scss linter
+        run: npm run lint:scss
 
-		- name: screen tests
-		run: npm run test:ui
+      - name: screen tests
+        run: npm run test:ui
     
-		- name: unit tests
-		run: npm run test:unit
+      - name: unit tests
+        run: npm run test:unit
 	
