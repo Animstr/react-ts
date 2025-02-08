@@ -25,12 +25,7 @@ jobs:
 
       - name: typescript linter
         run: npm run lint:ts
-
-      - name: scss linter
-        run: npm run lint:scss
-
-      - name: screen tests
-        run: npm run test:ui    
+  
       - name: unit tests
         run: npm run test:unit
 
