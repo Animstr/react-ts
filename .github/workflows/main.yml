@@ -38,7 +38,6 @@ jobs:
         run: npm run lint:scss
 
       - name: screen tests
-        run: npm run test:ui
-    
+        run: npm run test:ui    
       - name: unit tests
         run: npm run test:unit
