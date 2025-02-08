@@ -5,8 +5,7 @@ import { BuildOptions } from './type/config';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
 export function buildPlugins ({paths, isDev}: BuildOptions): webpack.WebpackPluginInstance[] {
-
-    return [
+    const plugins = [
         new webpack.ProgressPlugin,
         new HtmlWebpackPlugin({ template: paths.html}),
         new MiniCssExtractPlugin({
@@ -16,9 +15,14 @@ export function buildPlugins ({paths, isDev}: BuildOptions): webpack.WebpackPlug
         new webpack.DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev),
         }),
-        new webpack.HotModuleReplacementPlugin(),
-        new BundleAnalyzerPlugin({
-            openAnalyzer: false
-        })
     ]
+    if (isDev) {
+        plugins.push(
+            new webpack.HotModuleReplacementPlugin(),
+            new BundleAnalyzerPlugin({
+                openAnalyzer: false
+            })
+        )
+    }
+    return plugins
 }
