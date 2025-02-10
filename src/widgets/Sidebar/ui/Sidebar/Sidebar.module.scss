@@ -6,10 +6,6 @@
     transition: width 0.3s;
 }
 
-.collapsed {
-    width: var(--sidebar-width-collapsed);
-}
-
 .switchers {
     position: absolute;
     bottom: 20px;
@@ -18,7 +14,46 @@
     width: 100%;
 }
 
+.links {
+    display: flex;
+    color: var(--inverted-primary-color);
+    justify-content: center;
+}
+
+.icon {
+    fill: var(--inverted-primary-color);
+    margin-right: 10px;
+}
+
+.mainLink {
+    margin-right: 15px;
+}
+
+.langSwitcher {
+    margin-left: 20px;
+    color: var(--inverted-primary-color)
+}
+
+.collapsed {
+    width: var(--sidebar-width-collapsed);
+    transition: 0.5s all, 0s background-color;
+
+    .switchers {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .langSwitcher {
+        margin-top: 15px;
+        margin-left: 0;
+    }
+}
+
+
+
 .toggler {
-    width: 100px;
-    height: 40px;
+    position: absolute;
+    bottom: 32px;
+    right: -32px;
+    
 }
