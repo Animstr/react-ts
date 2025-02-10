@@ -1,10 +1,10 @@
 import {screen} from '@testing-library/react'
 import { Sidebar } from './Sidebar'
-import { renderWithTranslation } from 'shared/lib/tests/renderWithTranslation/renderWithTranslation'
+import { renderWithRouter } from 'shared/lib/tests/renderWithRouter/renderWithRouter'
 
 describe('Button UI', () => {
     test('Render in DOM', () => {
-        renderWithTranslation(<Sidebar/>)
+        renderWithRouter(<Sidebar/>)
         expect(screen.getByTestId('sidebar')).toBeInTheDocument()
     })
 })
