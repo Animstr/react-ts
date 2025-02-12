@@ -30,7 +30,7 @@ export const Sidebar = () => {
             >
                 {colapsed ? '>' : '<'}
             </Button>
-            <div data-testId='main-link'>
+            <div data-testid='main-link'>
                 <AppLink theme={AppLinkTheme.PRIMARY} to={RoutePaths['main ']}>
                     <div className={s.links}>
                         <div className={s.icon}>
@@ -40,7 +40,7 @@ export const Sidebar = () => {
                     </div>
                 </AppLink>
             </div>
-            <div data-testId='about-link'>
+            <div data-testid='about-link'>
                 <AppLink theme={AppLinkTheme.PRIMARY} to={RoutePaths.about}>
                     <div className={s.links}>
                         <div className={s.icon}>
