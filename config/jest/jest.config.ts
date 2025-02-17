@@ -13,6 +13,12 @@ const config: Config = {
     coveragePathIgnorePatterns: [
         "/node_modules/"
     ],
+    roots: [
+        "<rootDir>/src/"
+    ],
+    modulePaths: [
+        "<rootDir>/src/"
+    ],
 
     moduleDirectories: ["node_modules", "src"],
 
@@ -39,8 +45,15 @@ const config: Config = {
     ],
     moduleNameMapper: {
         '\\.module\\.scss$': 'identity-obj-proxy',
-        '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx')
+        '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
+        '^entities/(.*)$': '<rootDir>/src/entities/$1',
+        '^app/(.*)$': '<rootDir>/src/app/$1', 
+        '^features/(.*)$': '<rootDir>/src/features/$1',
+        '^widgets/(.*)$': '<rootDir>/src/widgets/$1'
     },
+    globals: {
+        __IS_DEV__: true,
+    }
 };
 
 export default config;
