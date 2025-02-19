@@ -1,10 +1,10 @@
 import { classNames } from "shared/lib/classNames/classNames"
 import { useTranslation } from "react-i18next";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
-import { Modal } from "shared/ui/Modal/Modal";
 import { useCallback, useState } from "react";
 
 import * as style from './Navbar.module.scss';
+import { AuthModal } from "fitures/AuthByUsername";
 
 interface NavbarProps {
     className?: string
@@ -18,13 +18,9 @@ export const Navbar = ({className}: NavbarProps) => {
     }, [])
     return (
         <div className={classNames(style.navbar, [className])}>
-            <Modal
+            <AuthModal
                 isOpen={isOpen}
-                onClose={toggleButton}
-                // eslint-disable-next-line i18next/no-literal-string
-            >
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.Minus quas debitis itaque quod, nam molestias vitae.Nemo odio eaque non, officiis recusandae expedita vero fugiat architecto maiores optio tempora cumque.
-            </Modal>
+                onClose={toggleButton} />
             <Button
                 theme={ButtonTheme.OUTLINE_INVERTED} 
                 onClick={toggleButton}>

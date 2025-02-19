@@ -18,7 +18,7 @@ const compat = new FlatCompat({
 export default [
     i18next.configs['flat/recommended'],
     {files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"]},
-    {languageOptions: { globals: globals.browser }},
+    {languageOptions: { globals: {node: true}}},
     pluginJs.configs.recommended,
     ...tseslint.configs.recommended,
     pluginReact.configs.flat.recommended,

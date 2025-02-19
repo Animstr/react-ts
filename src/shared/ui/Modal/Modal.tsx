@@ -2,12 +2,15 @@ import { classNames } from 'shared/lib/classNames/classNames'
 import * as style from './Modal.module.scss';
 import { ReactNode, useCallback, useEffect, useRef, useState } from 'react';
 import { Portal } from '../Portal/Portal';
+import { useTheme } from 'app/providers/ThemeProvider';
 
 export interface ModalProps {
     children?: ReactNode,
     isOpen: boolean,
     onClose?: () => void,
     isTestingDark?: boolean,
+    className?: string,
+    lazy?: boolean
 };
 
 const ANIMATION_DELAY = 300;
@@ -17,11 +20,20 @@ export const Modal = (props: ModalProps) => {
         children,
         isOpen,
         onClose,
-        isTestingDark
+        className,
+        lazy,
     } = props;
 
-    const [isClosing, setIsClosing] = useState(false)
+    const { theme } = useTheme();
+    const [isClosing, setIsClosing] = useState(false);
+    const [isMounting, setIsMounting] = useState(false);
     const timerRef = useRef<ReturnType<typeof setTimeout>>();
+
+    useEffect(() => {
+        if (isOpen)  {
+            setIsMounting(true)
+        }
+    },[isOpen])
 
     const closeModal = useCallback(() => {
         if (onClose) {
@@ -56,11 +68,15 @@ export const Modal = (props: ModalProps) => {
     const mods: Record<string, boolean> = {
         [style.opened]: isOpen,
         [style.isClosing]: isClosing,
-        'app dark': isTestingDark
     }
+
+    if (!isMounting && lazy) {
+        return null;
+    }
+
     return (
         <Portal>
-            <div className={classNames(style.Modal, [], mods)}>
+            <div className={classNames(style.Modal, [theme, className ], mods)}>
                 <div className={style.overlay} onClick={closeModal}>
                     <div className={style.content} onClick={onContentClick}>
                         {children}
