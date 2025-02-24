@@ -13,10 +13,10 @@ interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'onChan
 export const Input = memo( function Input( props: InputProps) {
     const {
         className,
-        value,
         onChange,
         placeholder,
         autoFocus,
+        value,
         ...otherProps
     } = props;
     const ref = useRef<HTMLInputElement>(null)
@@ -57,6 +57,7 @@ export const Input = memo( function Input( props: InputProps) {
             }
             <div className={style.caretWrapper}>
                 <input 
+                    value={value}
                     ref={ref} 
                     type="text" 
                     onChange={handleCaretPlace}

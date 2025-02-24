@@ -130,6 +130,14 @@ export const SquareSizeXL: Story = {
     }
 };
 
+export const Disabled: Story = {
+    args:{
+        children: 'Text',
+        theme: ButtonTheme.BACKGROUND_INVERTED,
+        disabled: true
+    }
+};
+
 OutlineDark.decorators = [styleDecorator(Theme.DARK)]
 
 

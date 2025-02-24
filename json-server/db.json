@@ -21,7 +21,7 @@
   "users": [
     {
       "id": 1,
-      "username": "admin",
+      "loggin": "admin",
       "password": "123"
     }
   ],

@@ -7,8 +7,11 @@
   "Something is going wrong": "Something is going wrong",
   "Reload page": "Reload page",
   "switchLanguageShort": "en",
-  "LogeIn": "Loge IN",
+  "LogeIn": "Login",
   "Enter": "Enter",
   "Enter password": "Password",
-  "Loggin": "Loggin"
+  "Loggin": "Login",
+  "Wrong login or password": "Wrong login or password",
+  "Login form": "Login form",
+  "Logout": "Logout"
 }
