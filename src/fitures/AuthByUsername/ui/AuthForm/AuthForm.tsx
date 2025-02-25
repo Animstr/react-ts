@@ -3,21 +3,33 @@ import * as style from './AuthForm.module.scss';
 import { useTranslation } from 'react-i18next';
 import { Button } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
-import { memo, useCallback } from 'react';
-import { authActions } from '../../model/slice/AuthSlice';
-import { getAuthForm } from '../../model/selectors/getAuthFormState/getAuthFormState';
+import { memo, useCallback, useEffect } from 'react';
+import { authActions, authReducer } from '../../model/slice/AuthSlice';
 import { authByUsername } from '../../model/services/Auth/AuthByUsername';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector, useStore } from 'react-redux';
 import { Text, TextThemes } from 'shared/ui/Text/Text';
+import { AppDispatch } from 'shared/config/redux/types/useAsyncThunkTypes';
+import { getAuthFormLoggin } from '../../model/selectors/getAuthFormLoggin/getAuthFormLoggin';
+import { getAuthFormPassword } from '../../model/selectors/getAuthFormPassword/getAuthFormPassword';
+import { getAuthFormLoading } from '../../model/selectors/getAuthFormLoading/getAuthFormLoading';
+import { getAuthFormError } from '../../model/selectors/getAuthFormError/getAuthFormError';
+import { DynamicModuleLoader, ReducersList } from 'shared/lib/dynamicModuleLoader/DynamicModuleLoader';
 
 export interface AuthFormProps {
     className?:string
 };
 
-export const AuthForm = memo(({className}: AuthFormProps) => {
+const initialReducers: ReducersList = {
+    authForm: authReducer
+}
+
+const AuthForm = memo(({className}: AuthFormProps) => {
     const{t} = useTranslation();
-    const dispatch = useDispatch();
-    const {loggin, password, isLoading, error} = useSelector(getAuthForm)
+    const dispatch = useDispatch<AppDispatch>();
+    const loggin = useSelector(getAuthFormLoggin);
+    const password = useSelector(getAuthFormPassword);
+    const isLoading = useSelector(getAuthFormLoading);
+    const error = useSelector(getAuthFormError)
 
     const onChangeLoggin = useCallback((value: string) => {
         dispatch(authActions.setLoggin(value))
@@ -32,30 +44,34 @@ export const AuthForm = memo(({className}: AuthFormProps) => {
     }, [dispatch, loggin, password])
 
     return (
-        <div className={classNames(style.AuthForm, [className])}>
-            <Text title={t('Login form')}/>
-            {error && 
-                <Text text={t('Wrong login or password')} theme={TextThemes.ERROR} />
-            }
-            <Input 
-                placeholder={t('Loggin')} 
-                onChange={onChangeLoggin}
-                type='text'
-                autoFocus={true}
-                value={loggin}
-            />
-            <Input 
-                placeholder={t('Enter password')} 
-                onChange={onChangePassword}
-                type='text'
-                value={password}
-            />
-            <Button 
-                onClick={onLogginClick}
-                className={style.loginBtn}
-                disabled={isLoading}>
-                {t('Enter')}
-            </Button>
-        </div>
+        <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount={true}>
+            <div className={classNames(style.AuthForm, [className])}>
+                <Text title={t('Login form')}/>
+                {error && 
+                    <Text text={t('Wrong login or password')} theme={TextThemes.ERROR} />
+                }
+                <Input 
+                    placeholder={t('Loggin')} 
+                    onChange={onChangeLoggin}
+                    type='text'
+                    autoFocus={true}
+                    value={loggin}
+                />
+                <Input 
+                    placeholder={t('Enter password')} 
+                    onChange={onChangePassword}
+                    type='text'
+                    value={password}
+                />
+                <Button 
+                    onClick={onLogginClick}
+                    className={style.loginBtn}
+                    disabled={isLoading}>
+                    {t('Enter')}
+                </Button>
+            </div>
+        </DynamicModuleLoader>
     );
 });
+
+export default AuthForm;
