@@ -19,7 +19,7 @@ export const createReduxStore = (
         devTools: __IS_DEV__,
         preloadedState: initialState,
     })
-    //@ts-ignore
+    //@ts-expect-error I'l fix this type soon
     store.reducerManager = reducerManager;
 
     return store;

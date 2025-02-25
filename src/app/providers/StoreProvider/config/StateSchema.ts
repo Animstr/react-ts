@@ -1,4 +1,4 @@
-import { Action, EnhancedStore, Reducer, ReducersMapObject, StateFromReducersMapObject } from "@reduxjs/toolkit";
+import { Action, EnhancedStore, Reducer, ReducersMapObject } from "@reduxjs/toolkit";
 import { CounterSchema } from "entity/Counter";
 import { UserSchema } from "entity/User";
 import { AuthSchema } from "fitures/AuthByUsername";
