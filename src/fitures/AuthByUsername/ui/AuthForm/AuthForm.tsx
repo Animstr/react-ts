@@ -5,7 +5,7 @@ import { Button } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
 import { memo, useCallback } from 'react';
 import { authActions, authReducer } from '../../model/slice/AuthSlice';
-import { authByUsername } from 'fitures/AuthByUsername/model/services/Auth/authByUsername';
+import { authByUsername } from '../../model/services/Auth/AuthByUsername';
 import { useDispatch, useSelector } from 'react-redux';
 import { Text, TextThemes } from 'shared/ui/Text/Text';
 import { AppDispatch } from 'shared/config/redux/types/useAsyncThunkTypes';
