@@ -10,7 +10,7 @@ interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'onChan
     autoFocus?: boolean,
 };
 
-export const Input = memo( function Input( props: InputProps) {
+export const Input = memo(( props: InputProps) => {
     const {
         className,
         onChange,

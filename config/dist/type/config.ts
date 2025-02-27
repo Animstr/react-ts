@@ -11,12 +11,14 @@ export interface BulidPaths {
 
 export interface BuildEnv {
     port: number,
-    mode: BuildMode
+    mode: BuildMode,
+    apiUrl?:string
 }
 
 export interface BuildOptions {
     mode: BuildMode,
     paths: BulidPaths,
     port: number,
-    isDev?: boolean
+    isDev?: boolean,
+    apiUrl?: string
 }

@@ -13,7 +13,8 @@ export default (env: BuildEnv): webpack.Configuration => {
             src: path.resolve(__dirname, 'src')
         },
         port: env.port || 3000,
-        isDev: env.mode == 'production' ? false : true
+        isDev: env.mode == 'production' ? false : true,
+        apiUrl: env.apiUrl || 'http://localhost:8000' 
     })
     return config;
 };

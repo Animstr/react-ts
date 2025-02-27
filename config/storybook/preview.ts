@@ -16,11 +16,11 @@ const preview: Preview = {
     },
     decorators: [
         styleDecorator(Theme.LIGHT),
-        routerDecorator,
         translationDecorator,
         StoreDecorator({
             authForm:{loggin: '', password: '', isLoading: false}
-        })
+        }),
+        routerDecorator
     ]
 };
 

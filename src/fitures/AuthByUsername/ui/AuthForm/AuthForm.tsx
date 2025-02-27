@@ -16,14 +16,15 @@ import { getAuthFormError } from '../../model/selectors/getAuthFormError/getAuth
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/dynamicModuleLoader/DynamicModuleLoader';
 
 export interface AuthFormProps {
-    className?:string
+    className?:string,
+    onSucess?: () => void,
 };
 
 const initialReducers: ReducersList = {
     authForm: authReducer
 }
 
-const AuthForm = memo(({className}: AuthFormProps) => {
+const AuthForm = memo(({className, onSucess}: AuthFormProps) => {
     const{t} = useTranslation();
     const dispatch = useDispatch<AppDispatch>();
     const loggin = useSelector(getAuthFormLoggin);
@@ -39,9 +40,12 @@ const AuthForm = memo(({className}: AuthFormProps) => {
         dispatch(authActions.setPassword(value))
     }, [dispatch])
 
-    const onLogginClick = useCallback(() => {
-        dispatch(authByUsername({loggin, password}))
-    }, [dispatch, loggin, password])
+    const onLogginClick = useCallback(async () => {
+        const response = await dispatch(authByUsername({loggin, password}))
+        if (response.meta.requestStatus == 'fulfilled') {
+            onSucess()
+        }
+    }, [onSucess, dispatch, loggin, password])
 
     return (
         <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount={true}>

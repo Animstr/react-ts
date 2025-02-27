@@ -13,5 +13,6 @@
   "Loggin": "Имя пользователя",
   "Wrong login or password": "Неправильный логин или пароль",
   "Login form": "Форма авторизации",
-  "Logout": "Выйти"
+  "Logout": "Выйти",
+  "Profile Page": "Профиль"
 }

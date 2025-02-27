@@ -1,7 +1,10 @@
-import { AsyncThunkAction } from "@reduxjs/toolkit";
+import { AsyncThunk } from "@reduxjs/toolkit";
 import { StateSchema } from "app/providers/StoreProvider";
 
-type ActionCreatorType<Return, Arg, RejectedValue> = (arg:Arg) => AsyncThunkAction<Return, Arg, { state: StateSchema; rejectValue: RejectedValue }>;
+type ActionCreatorType<ReturnType, Argument, RejectValue> = AsyncThunk<ReturnType, Argument, {
+    rejectValue: RejectValue;
+  }>;
+  
 
 export class TestAsyncThunk<Return, Arg, RejectedValue> {
      

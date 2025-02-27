@@ -53,6 +53,7 @@ const config: Config = {
     },
     globals: {
         __IS_DEV__: true,
+        __API_URL__: '',
     }
 };
 

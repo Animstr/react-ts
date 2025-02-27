@@ -1,18 +1,14 @@
 import { classNames } from 'shared/lib/classNames/classNames'
 import * as s from './Sidebar.module.scss';
-import { useState } from 'react';
+import { memo, useState } from 'react';
 import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher/ThemeSwitcher';
 import { LanguageSwitcher } from 'shared/ui/LanguageSwitcher/LanguageSwitcher';
-import { useTranslation } from 'react-i18next';
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
-import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
-import { RoutePaths } from 'shared/config/routeConfig/routConfig';
-import AboutIcon from 'shared/assets/icons/about.svg';
-import MainIcon from 'shared/assets/icons/main.svg';
+import { SidebarItemList } from 'widgets/Sidebar/model/items';
+import { SidebarItem } from '../SidebarItem/SidebarItem';
 
-export const Sidebar = () => {
+export const Sidebar = memo(() => {
     const [colapsed, setCollapsed] = useState(false);
-    const {t} = useTranslation();
     const onToggle = () => {
         setCollapsed(prev => !prev);
     }
@@ -30,26 +26,13 @@ export const Sidebar = () => {
             >
                 {colapsed ? '>' : '<'}
             </Button>
-            <div data-testid='main-link'>
-                <AppLink theme={AppLinkTheme.PRIMARY} to={RoutePaths['main ']}>
-                    <div className={s.links}>
-                        <div className={s.icon}>
-                            <MainIcon/>
-                        </div>
-                        {t( colapsed ? '' : 'mainPage')}
-                    </div>
-                </AppLink>
-            </div>
-            <div data-testid='about-link'>
-                <AppLink theme={AppLinkTheme.PRIMARY} to={RoutePaths.about}>
-                    <div className={s.links}>
-                        <div className={s.icon}>
-                            <AboutIcon/>
-                        </div>
-                        {t( colapsed ? '' : 'aboutPage')}
-                    </div>
-                </AppLink>
-            </div>
+            {SidebarItemList.map((item) => (
+                <SidebarItem 
+                    key={item.path}
+                    colapsed={colapsed}
+                    item={item}
+                />
+            ))}
             <div className={s.switchers}>
                 <ThemeSwitcher/>
                 <LanguageSwitcher 
@@ -58,4 +41,4 @@ export const Sidebar = () => {
             </div>
         </div>
     );
-};
+});

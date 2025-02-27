@@ -14,21 +14,6 @@
     width: 100%;
 }
 
-.links {
-    display: flex;
-    color: var(--inverted-primary-color);
-    justify-content: center;
-}
-
-.icon {
-    fill: var(--inverted-primary-color);
-    margin-right: 10px;
-}
-
-.mainLink {
-    margin-right: 15px;
-}
-
 .langSwitcher {
     margin-left: 20px;
     color: var(--inverted-primary-color)
@@ -49,11 +34,8 @@
     }
 }
 
-
-
 .toggler {
     position: absolute;
     bottom: 32px;
     right: -32px;
-    
 }

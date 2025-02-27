@@ -1,4 +1,3 @@
-import { BrowserRouter as Router} from 'react-router-dom';
 import { useTheme } from 'app/providers/ThemeProvider';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { AppRouter } from './providers/router';
@@ -18,13 +17,11 @@ export function App () {
    
     return (
         <div className={classNames('app', [theme])}>
-            <Router>
-                <Navbar className='dark'/>
-                <div className='content-page'>
-                    <Sidebar/>
-                    <AppRouter/>
-                </div>
-            </Router>
+            <Navbar className='dark'/>
+            <div className='content-page'>
+                <Sidebar/>
+                <AppRouter/>
+            </div>
         </div>
     )
 }

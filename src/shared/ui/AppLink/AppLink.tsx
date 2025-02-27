@@ -3,6 +3,7 @@ import { LinkProps } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 import * as style from './AppLink.module.scss';
+import { memo } from 'react';
 
 export const enum AppLinkTheme {
     PRIMARY = 'primary',
@@ -14,7 +15,7 @@ export interface AppLinkProps extends LinkProps{
     theme: AppLinkTheme
 };
 
-export const AppLink = (props: AppLinkProps) => {
+export const AppLink = memo((props: AppLinkProps) => {
     const {to, children, theme = AppLinkTheme.PRIMARY, ...otherProps} = props;
 
     return (
@@ -25,4 +26,4 @@ export const AppLink = (props: AppLinkProps) => {
             {children}
         </Link>
     );
-};
+});
