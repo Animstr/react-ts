@@ -13,7 +13,7 @@ export const authByUsername = createAsyncThunk<User, authByUsernameProps, { reje
     async (requestData, thunkAPI) => {
         try {
             const response = await thunkAPI.extra.api.post('/login', requestData)
-
+            console.log(response)
             if (!response.data) {
                 throw new Error()
             }

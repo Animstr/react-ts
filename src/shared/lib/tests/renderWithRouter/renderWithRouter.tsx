@@ -16,12 +16,12 @@ export const renderWithRouter = (component: ReactNode, options: RenderWithRouter
         state
     } = options;
     return render(
-        <StoreProvider initialState={state}>
-            <MemoryRouter initialEntries={[route]}>
+        <MemoryRouter initialEntries={[route]}>
+            <StoreProvider initialState={state}>
                 <I18nextProvider i18n={i18n}>
                     {component}
                 </I18nextProvider>   
-            </MemoryRouter>
-        </StoreProvider>
+            </StoreProvider>
+        </MemoryRouter>
     )
 }
