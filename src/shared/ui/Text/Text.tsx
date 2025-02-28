@@ -18,7 +18,7 @@ export const Text = (props: TextProps) => {
         className, 
         text, 
         title, 
-        theme,
+        theme = TextThemes.PRIMARY,
     } = props;
 
     return (

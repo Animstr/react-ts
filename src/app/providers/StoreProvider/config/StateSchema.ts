@@ -4,7 +4,7 @@ import { CounterSchema } from "entity/Counter";
 import { ProfileSchema } from "entity/Profile";
 import { UserSchema } from "entity/User";
 import { AuthSchema } from "fitures/AuthByUsername";
-import { NavigateFunction } from "react-router-dom";
+import { NavigateOptions, To } from "react-router-dom";
 
 export interface ReducerManager {
     getReducerMap: () => ReducersMapObject<StateSchema>,
@@ -30,5 +30,5 @@ export type StateSchemaKeys = keyof StateSchema;
 
 export interface AsyncThunkExtras {
     api: AxiosInstance,
-    navigate: NavigateFunction
+    navigate?: (to: To, options?: NavigateOptions) => void
 }

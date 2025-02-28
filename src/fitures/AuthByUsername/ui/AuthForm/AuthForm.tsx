@@ -6,14 +6,14 @@ import { Input } from 'shared/ui/Input/Input';
 import { memo, useCallback } from 'react';
 import { authActions, authReducer } from '../../model/slice/AuthSlice';
 import { authByUsername } from '../../model/services/Auth/AuthByUsername';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Text, TextThemes } from 'shared/ui/Text/Text';
-import { AppDispatch } from 'shared/config/redux/types/useAsyncThunkTypes';
 import { getAuthFormLoggin } from '../../model/selectors/getAuthFormLoggin/getAuthFormLoggin';
 import { getAuthFormPassword } from '../../model/selectors/getAuthFormPassword/getAuthFormPassword';
 import { getAuthFormLoading } from '../../model/selectors/getAuthFormLoading/getAuthFormLoading';
 import { getAuthFormError } from '../../model/selectors/getAuthFormError/getAuthFormError';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/dynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 
 export interface AuthFormProps {
     className?:string,
@@ -26,7 +26,7 @@ const initialReducers: ReducersList = {
 
 const AuthForm = memo(({className, onSucess}: AuthFormProps) => {
     const{t} = useTranslation();
-    const dispatch = useDispatch<AppDispatch>();
+    const dispatch = useAppDispatch();
     const loggin = useSelector(getAuthFormLoggin);
     const password = useSelector(getAuthFormPassword);
     const isLoading = useSelector(getAuthFormLoading);
@@ -42,7 +42,7 @@ const AuthForm = memo(({className, onSucess}: AuthFormProps) => {
 
     const onLogginClick = useCallback(async () => {
         const response = await dispatch(authByUsername({loggin, password}))
-        if (response.meta.requestStatus == 'fulfilled') {
+        if (response.meta.requestStatus == 'fulfilled' && onSucess) {
             onSucess()
         }
     }, [onSucess, dispatch, loggin, password])

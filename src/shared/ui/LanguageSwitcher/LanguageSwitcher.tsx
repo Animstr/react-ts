@@ -5,7 +5,7 @@ import { memo } from 'react';
 
 interface LanguageSwitcher {
     short?: boolean,
-    className?: string
+    className?: string 
 }
 
 export const LanguageSwitcher = memo(({short, className} : LanguageSwitcher) => {

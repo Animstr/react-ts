@@ -2,8 +2,9 @@ import { ReducersMapObject } from '@reduxjs/toolkit';
 import { StoryFn } from '@storybook/react';
 import { StateSchema, StoreProvider } from 'app/providers/StoreProvider';
 import { authReducer } from 'fitures/AuthByUsername/model/slice/AuthSlice';
+import { ReducersList } from 'shared/lib/dynamicModuleLoader/DynamicModuleLoader';
 
-const defaultAsyncReducers: Partial<ReducersMapObject<StateSchema>> = {
+const defaultAsyncReducers: ReducersList = {
     authForm: authReducer
 } 
 
