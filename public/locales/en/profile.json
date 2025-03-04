@@ -2,5 +2,14 @@
   "profile.Profile": "Profile",
   "profile.Change": "Change",
   "profile.Name": "Name",
-  "profile.LastName": "Last name"
+  "profile.LastName": "Last name",
+  "profile.reloadPage": "Reload page",
+  "profile.Cancel": "Cancel",
+  "profile.Age": "Age",
+  "profile.Country": "Country",
+  "profile.SaveChanges": "Save changes",
+  "profile.Username": "Username",
+  "profile.Avatar": "Avatar",
+  "profile.Currency": "Currency",
+  "profile.AvatarLink": "Avatar link"
 }

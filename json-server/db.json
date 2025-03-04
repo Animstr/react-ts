@@ -25,10 +25,10 @@
       "password": "123"
     }
   ],
-  "profile": { 
+  "profile": {
     "first": "Daniil",
-    "second": "Shuliystev",
-    "age": "21",
+    "second": "Shuliyatev",
+    "age": 21,
     "currency": "RUB",
     "country": "Russia",
     "city": "Moscow",

@@ -1,20 +1,18 @@
 .ProfileCard {
     border: 2px solid var(--inverted-bg-color);
     padding: 15px;
-}
-
-.header {
-    display: flex;
-}
-
-.button {
-    margin-left: auto;
+    margin-top: 20px;
 }
 
 .input {
     margin-top: 10px;
 }
 
-.data {
-    margin-top: 10px;
+.avatar_wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.editing {
+    border: 2px solid var(--inverted-primary-color);
 }

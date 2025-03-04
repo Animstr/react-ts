@@ -17,15 +17,24 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
-    args:{}
+    args: {
+        isLoading: false,
+        readonly: true
+    }
 };
 
 export const isLoading: Story = {
-    args:{}
+    args: {
+        isLoading: true,
+        readonly: true
+    }
 };
 
 export const PrimaryDark: Story = {
-    args:{}
+    args: {
+        isLoading: false,
+        readonly: true
+    }
 };
 
 

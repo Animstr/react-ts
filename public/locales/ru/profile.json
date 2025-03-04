@@ -2,5 +2,14 @@
   "profile.Profile": "Профиль",
   "profile.Change": "Редактировать",
   "profile.Name": "Имя",
-  "profile.LastName": "Фамилия"
+  "profile.LastName": "Фамилия",
+  "profile.reloadPage": "Перезагрузите страницу",
+  "profile.Cancel": "Отменить",
+  "profile.Age": "Возраст",
+  "profile.Country": "Страна",
+  "profile.SaveChanges": "Сохранить",
+  "profile.Username": "Имя пользователя",
+  "profile.Avatar": "Аватар",
+  "profile.Currency": "Валюта",
+  "profile.AvatarLink": "Ссылка на аватар"
 }

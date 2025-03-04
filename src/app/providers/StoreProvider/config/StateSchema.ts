@@ -30,5 +30,5 @@ export type StateSchemaKeys = keyof StateSchema;
 
 export interface AsyncThunkExtras {
     api: AxiosInstance,
-    navigate?: (to: To, options?: NavigateOptions) => void
+    navigate?: (to: To, options?: NavigateOptions) => void,
 }
