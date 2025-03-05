@@ -54,6 +54,7 @@ const config: Config = {
     globals: {
         __IS_DEV__: true,
         __API_URL__: '',
+        __PROJECT__: 'jest'
     }
 };
 

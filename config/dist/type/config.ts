@@ -2,6 +2,8 @@
 
 export type BuildMode = 'production' | 'development';
 
+export type ProjectMode = 'frontend' | 'storybook' | 'jest';
+
 export interface BulidPaths {
     entry: string,
     dist: string,
@@ -20,5 +22,6 @@ export interface BuildOptions {
     paths: BulidPaths,
     port: number,
     isDev?: boolean,
-    apiUrl?: string
+    apiUrl?: string,
+    project: ProjectMode
 }

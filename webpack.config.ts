@@ -14,7 +14,8 @@ export default (env: BuildEnv): webpack.Configuration => {
         },
         port: env.port || 3000,
         isDev: env.mode == 'production' ? false : true,
-        apiUrl: env.apiUrl || 'http://localhost:8000' 
+        apiUrl: env.apiUrl || 'http://localhost:8000' ,
+        project: 'frontend'
     })
     return config;
 };

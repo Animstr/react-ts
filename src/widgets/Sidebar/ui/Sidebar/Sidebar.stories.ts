@@ -3,6 +3,7 @@ import { fn } from '@storybook/test';
 import { Sidebar } from './Sidebar';
 import { styleDecorator } from 'shared/config/storybook/decorators/styleDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
+import { StoreDecorator } from 'shared/config/storybook/decorators/storeDecorator';
 
 const meta = {
     title: 'widgets/Sidebar',
@@ -17,15 +18,24 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Light: Story = {
+export const LightNoAuth: Story = {
 
 };
 
-export const Dark: Story = {
+export const DarkNoAuth: Story = {
+
+};
+export const LightAuth: Story = {
 
 };
 
-Dark.decorators = [styleDecorator(Theme.DARK)]
+export const DarkAuth: Story = {
+
+};
+
+DarkNoAuth.decorators = [styleDecorator(Theme.DARK)]
+DarkAuth.decorators = [styleDecorator(Theme.DARK), StoreDecorator({ user: { authData: { id: 1, username: 'admin'}}})]
+LightAuth.decorators = [StoreDecorator({ user: { authData: { id: 1, username: 'admin'}}})]
 
 
 

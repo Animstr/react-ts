@@ -93,7 +93,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
             />
             <Input 
                 value={form?.city}
-                placeholder={t('Country')}
+                placeholder={t('City')}
                 className={style.input}
                 onChange={editCity}
                 readonly={readonly}

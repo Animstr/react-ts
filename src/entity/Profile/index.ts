@@ -15,4 +15,8 @@ export {getProfileReadonly} from './model/sellectors/getProfileReadonly/getProfi
 
 export {getProfileForm} from './model/sellectors/getProfileForm/getProfileForm';
 
-export {saveData} from './model/services/saveData/saveData'
+export {getProfileValidateErrors} from './model/sellectors/getProfieValidateErrors/getProfileValidateErrors'; 
+
+export {ValidateProfileErrors} from './model/types/profile';
+
+export {saveData} from './model/services/saveData/saveData';
