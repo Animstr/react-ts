@@ -97,6 +97,5 @@ const ProfilePage = () => {
         </DynamicModuleLoader>
     );
 };
-//
 
 export default ProfilePage

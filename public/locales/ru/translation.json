@@ -14,5 +14,6 @@
   "Wrong login or password": "Неправильный логин или пароль",
   "Login form": "Форма авторизации",
   "Logout": "Выйти",
-  "Profile Page": "Профиль"
+  "Profile Page": "Профиль",
+  "Articles Page": "Статьи"
 }

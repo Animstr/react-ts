@@ -2,6 +2,7 @@
 @use './variables/global.scss' as *;
 @use 'themes/dark';
 @use 'themes/light';
+@use 'themes/blue';
 
 body {
     font: var(--font-m); 

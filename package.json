@@ -4,6 +4,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack server --env port=3000",
+    "start:dev": "concurrently \"npm start\" \"npm run start:dev:server\"",
     "build:prod": "webpack --env mode=production",
     "build:dev": "webpack --env mode=development",
     "start:dev:server": "node json-server/index.js",
@@ -52,6 +53,7 @@
     "@types/webpack-bundle-analyzer": "^4.7.0",
     "babel-jest": "^29.7.0",
     "babel-plugin-module-resolver": "^5.0.2",
+    "concurrently": "^9.1.2",
     "css-loader": "^7.1.2",
     "css-minimizer-webpack-plugin": "^7.0.0",
     "css-modules-require-hook": "^4.2.3",
