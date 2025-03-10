@@ -51,7 +51,8 @@ export default [
             "react-hooks/rules-of-hooks": "error",
             "react-hooks/exhaustive-deps": "error",
             "react/display-name": "off",
-            "@typescript-eslint/ban-ts-comment": "warn"
+            "@typescript-eslint/ban-ts-comment": "warn",
+            "react/no-children-prop": "warn"
         },
     }
 ];

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Text, TextThemes } from './Text';
+import { Text, TextSize, TextThemes } from './Text';
 import { styleDecorator } from 'shared/config/storybook/decorators/styleDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 
@@ -35,6 +35,14 @@ export const ComonTextError: Story = {
     args: {
         text: 'comone text',
         theme: TextThemes.ERROR
+    }
+};
+
+export const TextSizeL: Story = {
+    args:{
+        title: 'Title',
+        text: 'subtitle',
+        size: TextSize.L
     }
 };
 

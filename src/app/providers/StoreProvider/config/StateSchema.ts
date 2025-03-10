@@ -1,5 +1,6 @@
 import { Action, EnhancedStore, Reducer, ReducersMapObject } from "@reduxjs/toolkit";
 import { AxiosInstance } from "axios";
+import { ArticleDetailsSchema } from "entity/Article";
 import { CounterSchema } from "entity/Counter";
 import { ProfileSchema } from "entity/Profile";
 import { UserSchema } from "entity/User";
@@ -19,7 +20,8 @@ export interface StateSchema {
 
     //async
     authForm?: AuthSchema,
-    profile?: ProfileSchema
+    profile?: ProfileSchema,
+    articleDetails?: ArticleDetailsSchema
 }
 
 export interface ReduxStoreWithManager extends EnhancedStore<StateSchema>{
