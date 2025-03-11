@@ -5,6 +5,7 @@ import { CounterSchema } from "entity/Counter";
 import { ProfileSchema } from "entity/Profile";
 import { UserSchema } from "entity/User";
 import { AuthSchema } from "fitures/AuthByUsername";
+import { ArticleDetailsCommentsSchema } from "pages/ArticleDetailsPage";
 import { NavigateOptions, To } from "react-router-dom";
 
 export interface ReducerManager {
@@ -21,7 +22,8 @@ export interface StateSchema {
     //async
     authForm?: AuthSchema,
     profile?: ProfileSchema,
-    articleDetails?: ArticleDetailsSchema
+    articleDetails?: ArticleDetailsSchema,
+    articleDetailsComments?: ArticleDetailsCommentsSchema,
 }
 
 export interface ReduxStoreWithManager extends EnhancedStore<StateSchema>{

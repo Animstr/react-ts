@@ -105,8 +105,9 @@
   "users": [
     {
       "id": 1,
-      "loggin": "admin",
-      "password": "123"
+      "username": "admin",
+      "password": "123",
+      "avatar": "https://avatars.mds.yandex.net/i?id=2effa651d6f0f9180845c1e22184e0c1_l-5558644-images-thumbs&n=13"
     }
   ],
   "profile": {
