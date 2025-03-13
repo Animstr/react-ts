@@ -19,7 +19,9 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -100,6 +102,18 @@
       "text": "some comment 3",
       "articleId": "1",
       "userId": "1"
+    },
+    {
+      "articleId": "1",
+      "text": "asdasd",
+      "userId": 1,
+      "id": "_3NHbiC"
+    },
+    {
+      "articleId": "1",
+      "text": "What?",
+      "userId": 1,
+      "id": "0M5v2vU"
     }
   ],
   "users": [
@@ -110,14 +124,17 @@
       "avatar": "https://avatars.mds.yandex.net/i?id=2effa651d6f0f9180845c1e22184e0c1_l-5558644-images-thumbs&n=13"
     }
   ],
-  "profile": {
-    "first": "Daniil",
-    "second": "Shuliyatev",
-    "age": 21,
-    "currency": "RUB",
-    "country": "Russia",
-    "username": "admin",
-    "avatar": "https://avatars.mds.yandex.net/i?id=2effa651d6f0f9180845c1e22184e0c1_l-5558644-images-thumbs&n=13",
-    "city": "Владимир"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "first": "Danil",
+      "second": "Shuliyatev",
+      "age": 21,
+      "currency": "RUB",
+      "country": "Russia",
+      "username": "admin",
+      "avatar": "https://avatars.mds.yandex.net/i?id=2effa651d6f0f9180845c1e22184e0c1_l-5558644-images-thumbs&n=13",
+      "city": "Владимир"
+    }
+  ]
 }

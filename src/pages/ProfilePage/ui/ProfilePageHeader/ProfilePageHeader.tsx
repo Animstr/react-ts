@@ -5,14 +5,18 @@ import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Text } from 'shared/ui/Text/Text';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
-import { getProfileReadonly, profileActions, saveData } from 'entity/Profile';
+import { getProfileData, getProfileReadonly, profileActions, saveData } from 'entity/Profile';
 import { useCallback } from 'react';
+import { getUserAuthData } from 'entity/User';
 
 
 export const ProfilePageHeader = () => {
     const{t} = useTranslation('profile');
     const dispatch = useAppDispatch();
     const readonly = useSelector(getProfileReadonly);
+    const userData = useSelector(getUserAuthData);
+    const profile = useSelector(getProfileData);
+    const canChange = userData?.id == profile?.id;
     
     const onClose = useCallback(() => {
         dispatch(profileActions.discardChanges())
@@ -29,27 +33,33 @@ export const ProfilePageHeader = () => {
     return (
         <div className={classNames(style.ProfilePageHeader, [])}>
             <Text title={t('Profile')}/>
-            { readonly ? ( 
-                <Button 
-                    className={style.button} 
-                    theme={ButtonTheme.OUTLINE}
-                    onClick={onEdit}>
-                    {t('Change')}
-                </Button>) : 
-                (
+            {
+                canChange && (
                     <div>
-                        <Button 
-                            className={style.button} 
-                            theme={ButtonTheme.OUTLINE_RED}
-                            onClick={onClose}>
-                            {t('Cancel')}
-                        </Button>
-                        <Button 
-                            className={style.button} 
-                            theme={ButtonTheme.OUTLINE}
-                            onClick={onSave}>
-                            {t('SaveChanges')}
-                        </Button>
+                        { readonly ? ( 
+                            <Button 
+                                className={style.button} 
+                                theme={ButtonTheme.OUTLINE}
+                                onClick={onEdit}>
+                                {t('Change')}
+                            </Button>) : 
+                            (
+                                <div>
+                                    <Button 
+                                        className={style.button} 
+                                        theme={ButtonTheme.OUTLINE_RED}
+                                        onClick={onClose}>
+                                        {t('Cancel')}
+                                    </Button>
+                                    <Button 
+                                        className={style.button} 
+                                        theme={ButtonTheme.OUTLINE}
+                                        onClick={onSave}>
+                                        {t('SaveChanges')}
+                                    </Button>
+                                </div>
+                            )
+                        }
                     </div>
                 )
             }

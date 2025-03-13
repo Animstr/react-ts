@@ -10,6 +10,8 @@ import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 import { Currency } from 'entity/Currency';
 import { Country } from 'entity/Country';
 import { Text, TextThemes } from 'shared/ui/Text/Text';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { useParams } from 'react-router-dom';
 
 
 const reducers: ReducersList = {
@@ -24,6 +26,7 @@ const ProfilePage = () => {
     const readonly = useSelector(getProfileReadonly);
     const form = useSelector(getProfileForm);
     const validateErrors = useSelector(getProfileValidateErrors);
+    const {id} = useParams<{id: string }>();
 
     const validateErrorsTranslate = {
         [ValidateProfileErrors.INCORECT_USER_DATA]: t('Incorrect Name or Lastname'),
@@ -33,11 +36,11 @@ const ProfilePage = () => {
         [ValidateProfileErrors.SERVER_ERROR]: t('Server error')
     }
 
-    useEffect(() => {
-        if (__PROJECT__ !== 'storybook') {
-            dispatch(getProfile())
+    useInitialEffect(() => {
+        if (id) {
+            dispatch(getProfile(id))
         }
-    }, [dispatch])
+    })
 
     const onEditFirstname = useCallback((value: string) => {
         dispatch(profileActions.updateProfile({first: value}))

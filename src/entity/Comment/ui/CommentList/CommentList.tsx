@@ -8,12 +8,23 @@ import { Text } from 'shared/ui/Text/Text';
 
 export interface CommentListProps {
     className?: string,
-    comments: Comment[]
+    comments: Comment[],
+    isLoading?: boolean
 };
 
 export const CommentList = memo((props: CommentListProps) => {
-    const{className, comments} = props;
+    const{className, comments, isLoading} = props;
     const{t} = useTranslation();
+
+    if(isLoading) {
+        return (
+            <>
+                <CommentCard isLoading={isLoading}/>
+                <CommentCard isLoading={isLoading}/>
+                <CommentCard isLoading={isLoading}/>
+            </>
+        )
+    }
 
     return (
         <div className={classNames(style.CommentList, [className])}>

@@ -17,7 +17,7 @@ export const saveData = createAsyncThunk<Profile, void, { rejectValue: ValidateP
         }
 
         try {
-            const response = await thunkAPI.extra.api.put('/profile', formData);
+            const response = await thunkAPI.extra.api.put(`/profile/${formData?.id}`, formData);
 
             if (!response.data) {
                 throw new Error()
