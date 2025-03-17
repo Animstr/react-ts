@@ -1,0 +1,13 @@
+.SMALL {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.BIG {
+    display: block;
+    
+    .card {
+        margin-bottom: 30px;
+    }
+}

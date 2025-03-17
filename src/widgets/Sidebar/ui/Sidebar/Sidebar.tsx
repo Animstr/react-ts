@@ -4,11 +4,13 @@ import { memo, useState } from 'react';
 import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher/ThemeSwitcher';
 import { LanguageSwitcher } from 'shared/ui/LanguageSwitcher/LanguageSwitcher';
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
-import { SidebarItemList } from 'widgets/Sidebar/model/items';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
+import { useSelector } from 'react-redux';
+import { getSidebarItemsList } from '../../model/selector/getSidebarItemsList';
 
 export const Sidebar = memo(() => {
     const [colapsed, setCollapsed] = useState(false);
+    const sidebarItemList = useSelector(getSidebarItemsList)
     const onToggle = () => {
         setCollapsed(prev => !prev);
     }
@@ -26,7 +28,7 @@ export const Sidebar = memo(() => {
             >
                 {colapsed ? '>' : '<'}
             </Button>
-            {SidebarItemList.map((item) => (
+            {sidebarItemList.map((item) => (
                 <SidebarItem 
                     key={item.path}
                     colapsed={colapsed}

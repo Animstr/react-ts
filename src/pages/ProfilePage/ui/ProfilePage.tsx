@@ -2,7 +2,7 @@ import { classNames } from 'shared/lib/classNames/classNames'
 import { useTranslation } from 'react-i18next';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/dynamicModuleLoader/DynamicModuleLoader';
 import { getProfile, getProfileError, getProfileForm, getProfileIsLoading, getProfileReadonly, getProfileValidateErrors, profileActions, profileReducer, ValidateProfileErrors } from 'entity/Profile';
-import { useCallback, useEffect } from 'react';
+import { useCallback } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { ProfileCard } from 'entity/Profile/ui/ProfileCard';
 import { useSelector } from 'react-redux';
