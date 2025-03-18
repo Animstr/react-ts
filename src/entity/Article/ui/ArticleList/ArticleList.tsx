@@ -18,7 +18,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
         className,
         articles,
         view,
-        isLoading = true
+        isLoading
     } = props;
     const{t} = useTranslation();
 

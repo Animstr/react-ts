@@ -7,6 +7,7 @@ import { UserSchema } from "entity/User";
 import { AddCommentFormSchema } from "fitures/AddCommentForm";
 import { AuthSchema } from "fitures/AuthByUsername";
 import { ArticleDetailsCommentsSchema } from "pages/ArticleDetailsPage";
+import { ArticlesPageSchema } from "pages/ArticlesPage";
 import { NavigateOptions, To } from "react-router-dom";
 
 export interface ReducerManager {
@@ -25,7 +26,8 @@ export interface StateSchema {
     profile?: ProfileSchema,
     articleDetails?: ArticleDetailsSchema,
     articleDetailsComments?: ArticleDetailsCommentsSchema,
-    addCommentsForm?: AddCommentFormSchema
+    addCommentsForm?: AddCommentFormSchema,
+    articlesPage?: ArticlesPageSchema
 }
 
 export interface ReduxStoreWithManager extends EnhancedStore<StateSchema>{
