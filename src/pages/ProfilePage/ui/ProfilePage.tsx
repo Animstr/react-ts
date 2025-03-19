@@ -12,6 +12,7 @@ import { Country } from 'entity/Country';
 import { Text, TextThemes } from 'shared/ui/Text/Text';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useParams } from 'react-router-dom';
+import { Page } from 'shared/ui/Page/Page';
 
 
 const reducers: ReducersList = {
@@ -77,7 +78,7 @@ const ProfilePage = () => {
     }, [dispatch])
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-            <div className={classNames('', [])}>
+            <Page className={classNames('', [])}>
                 <ProfilePageHeader/>
                 {validateErrors?.length && validateErrors.map((error : ValidateProfileErrors) => (
                     <Text theme={TextThemes.ERROR} text={validateErrorsTranslate[error]} key={error}/>
@@ -96,7 +97,7 @@ const ProfilePage = () => {
                     editCurrency={onEditCurrency}
                     editCountry={onEditCountry}
                 />
-            </div>
+            </Page>
         </DynamicModuleLoader>
     );
 };

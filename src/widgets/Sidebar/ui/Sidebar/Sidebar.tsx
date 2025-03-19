@@ -16,7 +16,7 @@ export const Sidebar = memo(() => {
     }
 
     return (
-        <div  
+        <menu  
             data-testid='sidebar' 
             className={classNames(s.Sidebar, [], {[s.collapsed]: colapsed})}>
             <Button
@@ -41,6 +41,6 @@ export const Sidebar = memo(() => {
                     short={colapsed}
                     className={s.langSwitcher} />
             </div>
-        </div>
+        </menu>
     );
 });
