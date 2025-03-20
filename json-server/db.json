@@ -515,7 +515,8 @@
           ]
         }
       ]
-    },{
+    },
+    {
       "id": "8",
       "title": "Python news",
       "subtitle": "Что нового в JS за 2022 год?",
@@ -1266,6 +1267,24 @@
       "text": "What?",
       "userId": 1,
       "id": "0M5v2vU"
+    },
+    {
+      "articleId": "1",
+      "text": " ",
+      "userId": 1,
+      "id": "1O6qtw1"
+    },
+    {
+      "articleId": "1",
+      "text": " ",
+      "userId": 1,
+      "id": "1uJlbvL"
+    },
+    {
+      "articleId": "1",
+      "text": " ",
+      "userId": 1,
+      "id": "8dgXaTD"
     }
   ],
   "users": [

@@ -34,7 +34,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
                     : null
             }
             {isLoading && ( 
-                new Array( view == ArticleView.SMALL ? 9 : 3)
+                new Array( view == ArticleView.SMALL ? 12 : 3)
                     .fill(0)
                     .map((skeleton, index) => <ArticleListItemSkeleton key={index} view={view}/>)
             )}

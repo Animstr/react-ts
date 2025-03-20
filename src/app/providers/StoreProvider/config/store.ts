@@ -4,23 +4,22 @@ import { counterReducer } from 'entity/Counter'
 import { userReducer } from 'entity/User'
 import { createReducerManager } from './ReducerManager'
 import { $api } from 'shared/api/api'
-import { NavigateOptions, To } from 'react-router-dom'
+import { scrollPositionReducer } from 'fitures/SaveScrollPosition'
 
 export const createReduxStore = (
     initialState?: StateSchema,
     asyncReducers?: ReducersMapObject<StateSchema>,
-    navigate?: (to: To, options?: NavigateOptions) => void
 ) => {
     const rootReducers: ReducersMapObject<StateSchema> = {
         ...asyncReducers,
         counter: counterReducer,
         user: userReducer,
+        scroll: scrollPositionReducer
     }
     const reducerManager = createReducerManager(rootReducers)
     
     const extraArg: AsyncThunkExtras = {
         api: $api,
-        navigate,
     }
 
     const store = configureStore({

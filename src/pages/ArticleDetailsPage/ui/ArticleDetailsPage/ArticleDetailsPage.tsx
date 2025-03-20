@@ -17,7 +17,7 @@ import { sendCommentOnArticle } from '../../model/services/sendCommentOnArticle'
 import { getArticleDetailsIsLoading } from '../../model/selectors/getArticleDetailsIsLoading';
 import { Button } from 'shared/ui/Button/Button';
 import { RoutePaths } from 'shared/config/routeConfig/routConfig';
-import { Page } from 'shared/ui/Page/Page';
+import { Page } from 'widgets/Page/Page';
 
 const reducers: ReducersList = {
     articleDetailsComments: articleCommentsReducer,

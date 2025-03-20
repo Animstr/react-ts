@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { Page } from 'shared/ui/Page/Page';
+import { Page } from 'widgets/Page/Page';
 
 
 function MainPage () {
@@ -7,7 +7,7 @@ function MainPage () {
 
     return (
         <Page>
-            <h1 data-testId='main-page' >{t('mainPage')}</h1>
+            <h1 data-testid='main-page' >{t('mainPage')}</h1>
         </Page>
     )
 }

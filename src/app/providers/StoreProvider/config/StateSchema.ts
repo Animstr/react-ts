@@ -6,20 +6,24 @@ import { ProfileSchema } from "entity/Profile";
 import { UserSchema } from "entity/User";
 import { AddCommentFormSchema } from "fitures/AddCommentForm";
 import { AuthSchema } from "fitures/AuthByUsername";
+import { SaveScrollPosition } from "fitures/SaveScrollPosition";
 import { ArticleDetailsCommentsSchema } from "pages/ArticleDetailsPage";
 import { ArticlesPageSchema } from "pages/ArticlesPage";
-import { NavigateOptions, To } from "react-router-dom";
+
+export type MountedReducers = OptionRecord<StateSchemaKeys, boolean>;
 
 export interface ReducerManager {
     getReducerMap: () => ReducersMapObject<StateSchema>,
     reduce: (state: StateSchema, action: Action) => StateSchema,
     add: (key: StateSchemaKeys, reducer: Reducer) => void,
     remove: (key: StateSchemaKeys) => void,
+    getMountedReducers: () => MountedReducers
 }
 
 export interface StateSchema {
     counter: CounterSchema,
     user: UserSchema,
+    scroll: SaveScrollPosition
 
     //async
     authForm?: AuthSchema,
@@ -37,6 +41,5 @@ export interface ReduxStoreWithManager extends EnhancedStore<StateSchema>{
 export type StateSchemaKeys = keyof StateSchema;
 
 export interface AsyncThunkExtras {
-    api: AxiosInstance,
-    navigate?: (to: To, options?: NavigateOptions) => void,
+    api: AxiosInstance
 }
