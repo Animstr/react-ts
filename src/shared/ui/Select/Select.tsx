@@ -2,21 +2,21 @@ import { classNames } from 'shared/lib/classNames/classNames'
 import * as style from './Select.module.scss';
 import { ChangeEvent, useMemo } from 'react';
 
-export interface SelectOption {
-    value: string,
+export interface SelectOption<T extends string>{
+    value: T,
     content: string,
 }
 
-export interface SelectProps {
+export interface SelectProps<T extends string>{
     label?: string,
-    options: SelectOption[],
+    options: SelectOption<T>[],
     className?: string,
-    value?: string,
-    onChange?: (value: string) => void,
+    value?: T,
+    onChange?: (value: T) => void,
     readonly?: boolean
 };
 
-export const Select = (props: SelectProps) => {
+export const Select = <T extends string>(props: SelectProps<T>) => {
     const {
         label,
         className,
@@ -27,8 +27,8 @@ export const Select = (props: SelectProps) => {
         ...otherProps
     } = props;
 
-    const optionsList = useMemo(() => {
-        return options.map(({value, content}: SelectOption) => (
+    const optionsList = () => {
+        return options.map(({value, content}: SelectOption<T>) => (
             <option
                 className={style.option}
                 value={value}
@@ -37,10 +37,10 @@ export const Select = (props: SelectProps) => {
                 {content}
             </option>
         ))
-    }, [options])
+    }
 
     const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
-        onChange?.(e.target.value)
+        onChange?.(e.target.value as T)
     }
 
     if (readonly) {
@@ -65,7 +65,7 @@ export const Select = (props: SelectProps) => {
                 value={value}
                 onChange={onChangeHandler}
                 {...otherProps}>
-                {optionsList}
+                {optionsList()}
             </select>
         </div>
     );

@@ -7,9 +7,10 @@ export enum ArticleBlockType {
 }
 
 export enum ArticleType {
+    ALL = "ALL",
     IT = "IT",
     SCIENCE = "SCIENCE",
-    ECONOMIC = "ECONOMIC",
+    ECONOMIC = "ECONOMICS",
 }
 
 export enum ArticleView {
@@ -35,6 +36,12 @@ export interface ArticleBlockText {
     type: ArticleBlockType.TEXT,
     title: string,
     paragraphs: string[],
+}
+
+export enum ArticleSortField {
+    VIEWS = 'views',
+    TITLE = 'title',
+    CREATED = 'createdAt' 
 }
 
 export type ArticleBlock = ArticleBlockText | ArticleBlockImage | ArticleBlockCode 

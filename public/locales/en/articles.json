@@ -3,5 +3,18 @@
   "Error": "Error when loading this article",
   "Comments": "Comments",
   "Read more": "Read more ...",
-  "Back": "Back"
+  "Back": "Back",
+  "Sort by": "Sort by",
+  "Search": "Search",
+  "by": "By",
+  "increase": "increase",
+  "decrease": "decrease",
+  "creation date": "creation date",
+  "title": "title",
+  "views": "views",
+  "All": "All",
+  "Economic": "Economic",
+  "IT": "IT",
+  "Science": "Science",
+  "No articles yet": "No articles yet"
 }

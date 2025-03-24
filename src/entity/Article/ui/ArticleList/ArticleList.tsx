@@ -5,6 +5,7 @@ import { memo } from 'react';
 import { Article, ArticleView } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
+import { Text, TextSize } from 'shared/ui/Text/Text';
 
 export interface ArticleListProps {
     className?: string,
@@ -20,11 +21,19 @@ export const ArticleList = memo((props: ArticleListProps) => {
         view,
         isLoading
     } = props;
-    const{t} = useTranslation();
+    const{t} = useTranslation('articles');
  
     const renderItems = (article: Article) => (
         <ArticleListItem key={article.id} article={article} view={view} className={style.card}/>
     )
+
+    if (!isLoading && !articles.length) {
+        return (
+            <div className={classNames('', [className, style[view]])}>
+                <Text title={t('No articles yet')} size={TextSize.L}/>
+            </div>
+        )
+    }
 
     return (
         <div className={classNames('', [className, style[view]])}>
